@@ -1,0 +1,42 @@
+<div class="example-container">
+    <h3>Create Article</h3>
+  </div>
+  
+  <div >
+    <form class="example-container"  #articleForm="ngForm" (ngSubmit)="createArticle(articleForm); articleForm.reset()">
+   
+      
+   
+   
+      <mat-form-field>
+      <input matInput placeholder="Name" name="name" id="name" ngModel>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput placeholder="Description" name="description" id="description" ngModel></textarea>
+    </mat-form-field>
+    <button mat-raised-button class="mybtn-success" type="submit">
+        <mat-icon>add</mat-icon>
+    </button>
+   </form>
+        
+    
+  
+  </div>
+<div class="example-container" *ngFor="let article of articles">
+  <mat-list role="list">
+      <mat-list-item role="listitem"> 
+        <p matLine>{{article.name}}</p>
+        <p matLine> {{article.description}} </p>
+        <button  mat-button class=""  >
+            <mat-icon>home</mat-icon>
+        </button> 
+        <button  mat-button >
+            <mat-icon>edit</mat-icon>
+        </button> 
+        <button  mat-button class="" (click)="deleteArticle(article)" >
+            <mat-icon>delete</mat-icon>
+        </button> 
+      </mat-list-item>
+  </mat-list>
+</div>
